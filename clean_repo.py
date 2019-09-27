@@ -1,4 +1,14 @@
 def get_useful_fields(repos, repo_count):
+    """Selects the useful fields from the repos
+
+    Arguments:
+        repos {list} -- the list of repos to be cleaned
+        repo_count {int} -- the number of repos
+
+    Returns:
+        {dict} -- the standard output format for the program
+    """
+
     filtered_repos = []
 
     for repo in repos:
