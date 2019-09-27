@@ -27,5 +27,6 @@ def get_repos_with_most_stars(languages, sort="stars", order="desc", stars=10000
 
 
 if __name__ == "__main__":
+    languages = ["javascript", "python", "go"]
 
-    print(get_repos_with_most_stars())
+    print(get_repos_with_most_stars(languages))
