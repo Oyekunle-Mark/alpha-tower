@@ -1,3 +1,7 @@
+"""Pulls in the main files and executes them here
+Prints the output of the executions
+"""
+
 from get_repos import get_repos_with_most_stars
 from clean_repo import get_useful_fields
 
