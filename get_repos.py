@@ -9,6 +9,10 @@ def get_repos_with_most_stars(languages, sort="stars", order="desc", stars=50000
 
     response = get(GITHUB_API_URL, params=parameters)
 
+    if response.status_code != 200:
+        raise RuntimeError(
+            f"An error occured while fetching the data. The status code was {response.status_code}")
+
     repos = response.json()["items"]
     repo_count = response.json()["total_count"]
 
