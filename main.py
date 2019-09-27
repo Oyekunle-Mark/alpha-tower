@@ -4,18 +4,21 @@ GITHUB_API_URL = "https://api.github.com/search/repositories"
 
 
 def create_query(languages, stars):
-    query = f"stars:>{stars}"
+    query = f"stars:>{stars} "
 
     for language in languages:
         query += f"language:{language} "
 
     return query
 
-def build_parameters(languages, sort="stars", order="desc", stars=100000):
-    return {"q": f"stars:>{stars}", "sort": sort, "order": order}
+def build_parameters(languages, sort, order, stars):
+    query = create_query(languages, stars);
+
+    return {"q": query, "sort": sort, "order": order}
     
 
-def get_repos_with_most_stars():
+def get_repos_with_most_stars(languages, sort="stars", order="desc", stars=100000):
+    parameters = build_parameters(languages, sort, order, stars)
 
     response = requests.get(GITHUB_API_URL, params=parameters)
 
