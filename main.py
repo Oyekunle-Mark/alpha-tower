@@ -3,7 +3,13 @@ import requests
 GITHUB_API_URL = "https://api.github.com/search/repositories"
 
 
+def create_query(languages, stars):
+    query = f"stars:>{stars}"
 
+    for language in languages:
+        query += f"language:{language} "
+
+    return query
 
 def build_parameters(languages, sort="stars", order="desc", stars=100000):
     return {"q": f"stars:>{stars}", "sort": sort, "order": order}
